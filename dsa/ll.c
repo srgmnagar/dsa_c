@@ -37,7 +37,7 @@ void create(int n)
 }
 void traverse()
 {
-	struct node *temp = start; // Start from the head node
+	struct node *temp = start; 
 
 	if (start == NULL)
 	{
@@ -48,10 +48,10 @@ void traverse()
 	printf("Linked list elements: ");
 	while (temp != NULL)
 	{
-		printf("%d -> ", temp->data); // Print the data of the current node
-		temp = temp->next;            // Move to the next node
+		printf("%d -> ", temp->data); 
+		temp = temp->next;           
 	}
-	printf("NULL\n"); // Indicate the end of the list
+	printf("NULL\n"); 
 }
 void insert_before()
 {
@@ -123,10 +123,25 @@ void delete() {
 }
 void main()
 {
-	create(3);
-	traverse();
-	insert_after();
-	traverse();
-	delete();
-	traverse();
-}
+	int choice, running = 1;
+    create(5);
+
+    while(running) {
+        printf("1. Insert Before\n");
+        printf("2. Insert After \n");
+        printf("3. Delete       \n");
+        printf("4. Display      \n");
+        printf("5. Quit         \n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+       
+        switch(choice){
+            case 1 : insert_before(); break;
+            case 2 : insert_after();  break;
+            case 3 : delete();   break;
+            case 4 : traverse();       break;
+            case 5 : running = 0;     break;
+            default: printf("Enter correct choice!");
+        }
+    }
+	}

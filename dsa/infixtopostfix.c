@@ -67,8 +67,6 @@ void infixToPostfix(char s[])
 int main()
 {
     char exp[] = "9-((3*4)+8)/4";
-
     infixToPostfix(exp);
-
     return 0;
 }
