@@ -70,14 +70,14 @@ int main()
     int arr1[] = {64, 25, 12, 22, 11};
     int arr2[] = {64, 25, 12, 22, 11};
     int arr3[] = {64, 25, 12, 22, 11};
-    // selectionsort(arr1, 5);
-    // insertionsort(arr2, 5);
+    selectionsort(arr1, 5);
+    insertionsort(arr2, 5);
     quickSort(arr3, 0, 4);
-    // for (int i = 0; i < 5; i++)
-    //     printf("%d ", arr1[i]);
-    // printf("\n");
-    // for (int i = 0; i < 5; i++)
-    //     printf("%d ", arr2[i]);
+    for (int i = 0; i < 5;i++)
+        printf("%d ", arr1[i]);
+    printf("\n");
+    for (int i = 0; i < 5; i++)
+        printf("%d ", arr2[i]);
     printf("\n");
     for (int i = 0; i < 5; i++)
         printf("%d ", arr3[i]);
