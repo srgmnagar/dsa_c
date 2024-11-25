@@ -10,9 +10,10 @@ void enqueue()
     }
     else
     {
-        printf("enter element");
+        int val;
+        printf("Enter val");
         scanf("%d", &val);
-        if (front == -1 && rear == -1)
+        if (front == -1 &&rear == -1)
         {
             front = rear = 0;
             queue[rear] = val;
@@ -26,21 +27,23 @@ void enqueue()
 }
 void dequeue()
 {
-    if (front == -1 && rear == -1)
+    if (front == -1 &&rear == -1)
     {
-        printf("queue empty");
+        printf("Queue empty");
     }
     else
     {
-        val = queue[front];
+        int x;
         if (front == rear)
         {
-            printf("%d", val);
+            x = queue[front];
+            printf("deleted elemnt is %d", x);
             front = rear = -1;
         }
         else
         {
-            printf("%d", val);
+            x = queue[front];
+            printf("deleted elemnt is %d", x);
             front = (front + 1) % max;
         }
     }
@@ -49,7 +52,7 @@ void display()
 {
     if (front == -1 && rear == -1)
     {
-        printf("queue empty");
+        printf("Queue empty");
     }
     else
     {
@@ -69,6 +72,7 @@ void main()
     enqueue();
     enqueue();
     enqueue();
+    display();
     dequeue();
     enqueue();
     display();

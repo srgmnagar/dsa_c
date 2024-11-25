@@ -10,7 +10,7 @@ void enqueue(int x)
     {
         printf("Queue Full\n");
     }
-    else if (rear == -1&& front==-1)
+    else if (rear == -1 && front == -1)
     {
         front++;
         queue[++rear] = x;
@@ -49,11 +49,10 @@ void display()
     else
     {
         i = front;
-        while (i <= rear)
-        {
-            printf("%d ", queue[i++]);
+        for (i = front; i <= rear; i++){
+            printf("%d\t",queue[i]);
         }
-        printf("\n");
+         printf("\n");
     }
 }
 
