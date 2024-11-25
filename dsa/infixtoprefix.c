@@ -61,7 +61,7 @@ void infixToPrefix(char s[])
         }
         else
         {
-            while (top >= 0 && (prec(s[i]) < prec(stack[top])))
+            while (top >= 0 && (prec(c) < prec(stack[top])))
             {
                 result[resultIndex++] = pop();
             }
