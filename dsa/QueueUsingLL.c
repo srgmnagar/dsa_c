@@ -28,14 +28,21 @@ void enqueue()
     }
 }
 
-int dequeue()
+void dequeue()
 {
     struct Node *temp;
     int x;
 
     if (front == NULL)
     {
-        return -99999;
+        pf("QUeue empty")
+    }
+    else if(front==rear){
+        temp = front;
+        x = temp->data;
+        front = front->next;
+        free(temp);
+        rear=NULL;
     }
     else
     {
@@ -43,7 +50,6 @@ int dequeue()
         x = temp->data;
         front = front->next;
         free(temp);
-        return x;
     }
 }
 

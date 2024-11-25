@@ -1,6 +1,6 @@
 #include <stdio.h>
 int visited[10], q[10];
-int adjacency_matrix[8][8] = {
+int adj[8][8] = {
     0, 1, 1, 1, 0, 0, 0, 0,
     1, 0, 0, 0, 1, 1, 0, 0,
     1, 0, 0, 0, 0, 0, 1, 0,
@@ -9,37 +9,39 @@ int adjacency_matrix[8][8] = {
     0, 1, 0, 0, 0, 0, 0, 1,
     0, 0, 1, 0, 0, 0, 0, 1,
     0, 0, 0, 1, 1, 1, 1, 0
-    
-};
-int num_of_vertices=8, front = 0, rear = -1;
 
-void bfs(int vertex) {
+};
+int n = 8, front = 0, rear = -1;
+void bfs(int v)
+{
+
     int i;
-    for (i = 0; i < num_of_vertices; i++) {
-        if (adjacency_matrix[vertex][i] == 1 && visited[i] == 0) {
+    for (i = 0; i < n; i++)
+    {
+        if (adj[v][i] == 1 && visited[i] == 0)
+        {
             q[++rear] = i;
             visited[i] = 1;
-            printf("%d ", i);
+            printf("%d", i);
         }
     }
-    if (front <= rear) {
+    if (front <= rear)
+    {
         bfs(q[front++]);
     }
 }
 
-int main() {
-    int i, j, vertex;
-
-    for(i = 0; i < num_of_vertices; i++) {
+int main()
+{
+    int v,i;
+    for (i = 0; i < n; i++)
+    {
         visited[i] = 0;
     }
 
-    printf("Enter starting vertex: ");
-    scanf("%d", &vertex);
-    visited[vertex] = 1;
-
-    printf("BFS:\n");
-    printf("%d ", vertex);
-    bfs(vertex);
-    return 0;
+    printf("enter vertex to start");
+    scanf("%d", &v);
+    visited[i] = 1;
+    printf("%d", v);
+    bfs(v);
 }

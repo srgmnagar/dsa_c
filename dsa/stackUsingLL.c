@@ -21,19 +21,18 @@ void push() {
     }
 }
 
-int pop(){
-    struct Node *temp;
-    int x;
+void pop(){
+   struct Node *temp;
+   if(top==NULL){
+    printf("stack empty");
+   }
+   else{
     temp = top;
-
-    if(top==NULL) {
-        return -999999;
-    } else {
-        x = temp->data;
-        top = temp->next;
-        free(temp);
-        return x;
-    }
+    int x=temp->data;
+    printf("deleted elemnt is %d",x);
+    top=top->next;
+    free(temp);
+   }
 }
 
 void display(){
