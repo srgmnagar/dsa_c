@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define size 100;
+#define size 100
 char stack[size];
 int top = -1;
 int prec(char c)
@@ -15,16 +15,16 @@ int prec(char c)
         return -1;
 }
 void push(char c){
-    if(top=size-1){
+    if(top==size-1){
         printf("Stack Overflow!");
     }
     else{
-        stack[++top]=c
+        stack[++top]=c;
     }
 }
 int pop(){
-    if(top=-1){
-        printf("Stack empty";)
+    if(top==-1){
+        printf("Stack empty");
         return 0;
     }
     else{
