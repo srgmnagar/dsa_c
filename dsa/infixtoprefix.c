@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-char stack[100];
-    int top = -1;
+#define size 100;
+char stack[size];
+int top = -1;
 int prec(char c)
 {
     if (c == '^')
@@ -14,14 +15,26 @@ int prec(char c)
         return -1;
 }
 void push(char c){
-    stack[++top]=c;
+    if(top=size-1){
+        printf("Stack Overflow!");
+    }
+    else{
+        stack[++top]=c
+    }
 }
 int pop(){
-    return stack[top--];
+    if(top=-1){
+        printf("Stack empty";)
+        return 0;
+    }
+    else{
+        int x=stack[top--];
+        return x;
+    }
 }
 void infixToPrefix(char s[])
 {
-    char result[1000];
+    char result[size];
     int resultIndex = 0;
     int len = strlen(s);
     
