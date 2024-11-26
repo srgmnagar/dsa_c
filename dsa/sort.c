@@ -7,7 +7,7 @@ void selectionsort(int arr[],int n){
         {
             if (arr[j]<arr[min])
             {
-                min=j;;
+                min=j;
             }
         }
         int temp=arr[i];
