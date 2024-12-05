@@ -19,7 +19,7 @@ void selectionsort(int arr[],int n){
 }
 void insertionsort(int arr[], int n)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
         int temp = arr[i];
         int j = i - 1;
@@ -40,6 +40,8 @@ void swap(int *a,int *b){
 int partition(int arr[], int low, int high){
     int start=low,end=high;
     int pivot=arr[low];
+    while (start<end)
+    {
     while(arr[start]<=pivot){
         start++;
     }
@@ -49,9 +51,9 @@ int partition(int arr[], int low, int high){
     if(start<end){
         swap(&arr[start],&arr[end]);
     }
-    else{
-        swap(&arr[end],&arr[low]);
     }
+        swap(&arr[end],&arr[low]);
+
     return end;
 }
 
@@ -70,15 +72,15 @@ int main()
     int arr1[] = {64, 25, 12, 22, 11};
     int arr2[] = {64, 25, 12, 22, 11};
     int arr3[] = {64, 25, 12, 22, 11};
-    selectionsort(arr1, 5);
-    insertionsort(arr2, 5);
+    // selectionsort(arr1, 5);
+    // insertionsort(arr2, 5);
     quickSort(arr3, 0, 4);
-    for (int i = 0; i < 5;i++)
-        printf("%d ", arr1[i]);
-    printf("\n");
-    for (int i = 0; i < 5; i++)
-        printf("%d ", arr2[i]);
-    printf("\n");
+    // for (int i = 0; i < 5;i++)
+    //     printf("%d ", arr1[i]);
+    // printf("\n");
+    // for (int i = 0; i < 5; i++)
+    //     printf("%d ", arr2[i]);
+    // printf("\n");
     for (int i = 0; i < 5; i++)
         printf("%d ", arr3[i]);
     return 0;

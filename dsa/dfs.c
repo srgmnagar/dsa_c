@@ -18,7 +18,7 @@ void dfs(int v) {
     int i;
     for(int i=0; i<n; i++) {
         if(adj[v][i] == 1 && visited[i] == 0) {
-            printf("%c ", 65+i);
+            printf("%d\t", i);
             visited[i] = 1;
             dfs(i);
         }
@@ -34,7 +34,7 @@ int main() {
     printf("Enter first vertex: ");
     scanf("%d", &v);
 
-    printf("%c ", 65+v);
+    printf("%d \t",v);
     visited[v] = 1;
     dfs(v);
     return 0;

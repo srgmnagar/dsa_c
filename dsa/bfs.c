@@ -41,7 +41,7 @@ int main()
 
     printf("enter vertex to start");
     scanf("%d", &v);
-    visited[i] = 1;
+    visited[v] = 1;
     printf("%d", v);
     bfs(v);
 }
