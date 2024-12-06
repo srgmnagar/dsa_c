@@ -35,6 +35,7 @@ void create(int n)
 		}
 	}
 }
+
 void traverse()
 {
 	struct node *temp = start; 

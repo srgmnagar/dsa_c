@@ -1,85 +1,85 @@
 #include <stdio.h>
-void selectionsort(int arr[],int n){
-    for (int i = 0; i < n; i++)
-    {
-       int min=i;
-        for (int j = i+1; j < n; j++)
-        {
-            if (arr[j]<arr[min])
-            {
-                min=j;
-            }
-        }
-        int temp=arr[i];
-        arr[i]=arr[min];
-        arr[min]=temp;
-        
-    }
-    
-}
-void insertionsort(int arr[], int n)
+#include <string.h>
+#define size 100
+char stack[size];
+    int top = -1;
+int prec(char c)
 {
-    for (int i = 1; i < n; i++)
-    {
-        int temp = arr[i];
-        int j = i - 1;
-        while (temp < arr[j] && j >= 0)
-        {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-            arr[j+1] = temp;
-    }
+    if (c == '^')
+        return 3;
+    else if (c == '/' || c == '*')
+        return 2;
+    else if (c == '+' || c == '-')
+        return 1;
+    else
+        return -1;
 }
-void swap(int *a,int *b){
-    int temp;
-    temp=*a;
-    *a=*b;
-    *b=temp;
-}
-int partition(int arr[], int low, int high){
-    int start=low,end=high;
-    int pivot=arr[low];
-    while(arr[start]<=pivot){
-        start++;
-    }
-    while(arr[end]>pivot){
-        end--;
-    }
-    if(start<end){
-        swap(&arr[start],&arr[end]);
+void push(char c){
+    if(top==size-1){
+        printf("Stack Overflow!");
     }
     else{
-        swap(&arr[end],&arr[low]);
+        stack[++top]=c;
     }
-    return end;
 }
-
-void quickSort(int arr[], int low, int high)
+int pop(){
+    if(top==-1){
+        printf("Stack empty");
+        return 0;
+    }
+    else{
+        int x=stack[top--];
+        return x;
+    }
+}
+void infixToPostfix(char s[])
 {
-    if(low<high){
-        int loc=partition(arr,low,high);
-        quickSort(arr,low,loc-1);
-        quickSort(arr,loc+1,high);
+    char result[size];
+    int resultIndex = 0;
+    int len = strlen(s);
+    
+
+    for (int i = 0; i < len; i++)
+    {
+        char c = s[i];
+
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
+        {
+            result[resultIndex++] = c;
+        }
+        else if (c == '(')
+        {
+            push(c);
+        }
+        else if (c == ')')
+        {
+            while (top >= 0 && stack[top] != '(')
+            {
+                result[resultIndex++] = pop();
+            }
+            top--;
+        }
+        else
+        {
+            while (top >= 0 && (prec(c) < prec(stack[top]) ||
+                                       prec(c) == prec(stack[top])))
+            {
+                result[resultIndex++] = pop();
+            }
+            push(c);
+        }
     }
+    while (top >= 0)
+    {
+        result[resultIndex++] = pop();
+    }
+
+    result[resultIndex] = '\0';
+    printf("%s\n", result);
 }
-
-
 int main()
 {
-    int arr1[] = {64, 25, 12, 22, 11};
-    int arr2[] = {64, 25, 12, 22, 11};
-    int arr3[] = {64, 25, 12, 22, 11};
-    // selectionsort(arr1, 5);
-    // insertionsort(arr2, 5);
-    quickSort(arr3, 0, 4);
-    // for (int i = 0; i < 5;i++)
-    //     printf("%d ", arr1[i]);
-    // printf("\n");
-    // for (int i = 0; i < 5; i++)
-    //     printf("%d ", arr2[i]);
-    // printf("\n");
-    for (int i = 0; i < 5; i++)
-        printf("%d ", arr3[i]);
+    char exp[] = "9-((3*4)+8)/4";
+    infixToPostfix(exp);
     return 0;
 }

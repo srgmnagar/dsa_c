@@ -29,9 +29,9 @@ int postfixeval(char s[])
     {
         char c = s[i];
 
-        if (isdigit(c))
+        if (c >= '0' && c <= '9')
         {
-            push((float)(c-'0'));
+            push((float)(c - '0'));
         }
         else
         {
@@ -58,14 +58,14 @@ int postfixeval(char s[])
             push(val);
         }
     }
-   return(pop());
+    return (pop());
 }
 int main()
 {
     char exp[] = "934*8+4/-";
 
-    float res=postfixeval(exp);
-    printf("%.3f",res);
+    float res = postfixeval(exp);
+    printf("%.3f", res);
 
     return 0;
 }

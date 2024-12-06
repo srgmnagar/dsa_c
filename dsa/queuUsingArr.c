@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #define max 5
 int queue[5];
