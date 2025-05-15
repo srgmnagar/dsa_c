@@ -2,6 +2,7 @@
 
 #define MAX 100
 
+
 int parent[MAX];
 
 int find(int i) {
